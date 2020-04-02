@@ -28,22 +28,14 @@ S.Block = styled.div`
 `
 
 
-
-
-
-
-
-
-
-
-
-
 function Pattern1(props) {
+
+    // ========== 90 degree grid rotation ===============
 
 
     const [blocksCreated, setBlocksCreated] = useState(false)
     
-    // Creates a 3x3 grid of blocks with alternating colors
+    // Sets a grid of blocks with alternating colors to state
     let color = "red"
     let blox = []
     let gridSize = 7;
@@ -72,7 +64,7 @@ function Pattern1(props) {
         }
     }
 
-    
+    // Rotates grid 90 degrees and updates state
     const rotateBlocks = () => {
         let blocksCopy = [...props.blocks];
         blocksCopy.forEach((block, i) => {
@@ -88,6 +80,7 @@ function Pattern1(props) {
         })
     }
 
+    // Triggers rotate grid funct on an interval
     useEffect(() => {
         const interval = setInterval(() => {
             rotateBlocks();
@@ -96,9 +89,7 @@ function Pattern1(props) {
     }, [props.blocks]);
 
 
-
-
-
+    // Util function to set CSS Grid properties dynamically to `gridSize`
     const setGridTemplate = () => {
         let frString = ""
         for (let i = 0; i < gridSize; i++){
